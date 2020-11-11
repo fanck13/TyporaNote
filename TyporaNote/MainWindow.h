@@ -1,15 +1,26 @@
-#pragma once
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QtWidgets/QMainWindow>
-#include "ui_MainWindow.h"
+#include <QMainWindow>
+#include <QTextEdit>
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = Q_NULLPTR);
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private slots:
+    void onFileNew();
 
 private:
-    Ui::MainWindowClass ui;
+    Ui::MainWindow *ui;
+    QTextEdit* textEdit;
 };
+#endif // MAINWINDOW_H
